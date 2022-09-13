@@ -27,7 +27,7 @@ function getPasswordLength() {
 //The following 4 functions make popup windows which run if needed.
 
 function getLowerCase() {
-  let lowerChoice = window.confirm("Do you want lowercase letters included")
+  let lowerChoice = window.confirm("Do you want your password to contain lowercase letters?")
   if (lowerChoice) {
     return lowerChoice
   }
@@ -35,7 +35,7 @@ function getLowerCase() {
 }
 
 function getUpperCase() {
-  let upperChoice = window.confirm("do you want uppercase letters included");
+  let upperChoice = window.confirm("Do you want your password to contain uppercase letters?");
   if (upperChoice) {
     return upperChoice
   }
@@ -43,7 +43,7 @@ function getUpperCase() {
 }
 
 function getNumCase() {
-  let numChoice = window.confirm("do you want numbers included");
+  let numChoice = window.confirm("Do you want your password to contain numbers?");
   if (numChoice) {
     return numChoice
   }
@@ -51,9 +51,49 @@ function getNumCase() {
 }
 
 function getSpecialCase() {
-  let specialChoice = window.confirm("do you want special characters included");
+  let specialChoice = window.confirm("Do you want your password to contain special characters?");
   if (specialChoice) {
     return specialChoice
   }
   return null;
 }
+
+//The following takes everything and puts it together to make it all work
+function generatePassword() {
+
+    let password = "";
+    let passwordLength = getPasswordLength()
+    let hasLowerCase = getLowerCase()
+    let hasUpperCase = getUpperCase()
+    let hasNumCase = getNumCase()
+    let hasSpecialCase = getSpecialCase()
+  
+  
+    if (hasLowerCase) {
+         comboArray = comboArray.concat(lowerCase)
+  
+      }if(hasUpperCase){
+        comboArray = comboArray.concat(UpperCase)
+  
+      }if(hasSpecialCase){
+        comboArray = comboArray.concat(specialCase)
+  
+      }if(hasNumCase){
+        comboArray = comboArray.concat(numCase)
+      }
+  
+      for (let i = 0; i < passwordLength; i++) {
+      
+        let randomNumber = Math.floor(Math.random() * comboArray.length)
+        let randomLetter = comboArray[randomNumber]
+        password += randomLetter;
+  
+  
+  
+  
+  }
+  return password;
+  }
+  
+  
+  generateBtn.addEventListener("click", writePassword);

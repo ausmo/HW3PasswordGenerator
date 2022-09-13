@@ -23,3 +23,37 @@ function getPasswordLength() {
   return Number.parseInt(amountCharacters);
 
 }
+
+//The following 4 functions make popup windows which run if needed.
+
+function getLowerCase() {
+  let lowerChoice = window.confirm("Do you want lowercase letters included")
+  if (lowerChoice) {
+    return lowerChoice
+  }
+  return null;
+}
+
+function getUpperCase() {
+  let upperChoice = window.confirm("do you want uppercase letters included");
+  if (upperChoice) {
+    return upperChoice
+  }
+  return null;
+}
+
+function getNumCase() {
+  let numChoice = window.confirm("do you want numbers included");
+  if (numChoice) {
+    return numChoice
+  }
+  return null;
+}
+
+function getSpecialCase() {
+  let specialChoice = window.confirm("do you want special characters included");
+  if (specialChoice) {
+    return specialChoice
+  }
+  return null;
+}

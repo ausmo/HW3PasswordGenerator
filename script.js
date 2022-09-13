@@ -12,3 +12,14 @@ function writePassword() {
   passwordText.value = password;
   comboArray = [];
 }
+//The following function generates how long the password will be. If the value isn't between 8-128 the function will run again.
+
+function getPasswordLength() {
+  let amountCharacters = window.prompt("How many characters would you like to include? 8-128");
+  if (amountCharacters > 128 || amountCharacters < 8) {
+    window.alert("Password must contain 8-128 characters");
+    return getPasswordLength()
+  }
+  return Number.parseInt(amountCharacters);
+
+}
